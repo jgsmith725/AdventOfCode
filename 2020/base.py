@@ -6,12 +6,10 @@ def parseInput(line):
 
 def part1(lines):
     for line in lines:
-        [] =parseInput(line)
     return
 
 def part2(lines):
     for line in lines:
-        [] = parseInput(line)
     return
 
 def main():
@@ -21,8 +19,8 @@ def main():
     f=open(my_file, "r")
     lines = f.readlines()
 
-    part1(lines)
-    part2(lines)
+    print(part1(lines))
+    print(part2(lines))
     
 
 if __name__== "__main__":
