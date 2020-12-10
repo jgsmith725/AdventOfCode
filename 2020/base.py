@@ -1,15 +1,17 @@
 import os
 
 def parseInput(line):
-
-    return []
+        val = line
+    return [val]
 
 def part1(lines):
     for line in lines:
+        val = line
     return
 
 def part2(lines):
     for line in lines:
+        val = line
     return
 
 def main():
