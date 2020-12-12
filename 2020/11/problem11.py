@@ -14,6 +14,7 @@ def move(grid, visible):
                     [empty_count, occ_count, floor_count] = getAdjacentVisible(grid, y, x)
                 else:
                     [empty_count, occ_count, floor_count] = getAdjacent(grid, y, x)
+                    
                 if val == "L":
                     if occ_count == 0:
                         new_row.append("#")
