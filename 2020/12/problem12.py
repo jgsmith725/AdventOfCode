@@ -50,18 +50,16 @@ def parseInput(line, pos_x, pos_y, dir):
         rotations = int(line[1:])/90
         dir = (dir - rotations) % 4
     if line[0] == "F":
-        if dir == 1:
+        if dir == 1: #north
             pos_y = pos_y + int(line[1:])
-        if dir == 3:
+        if dir == 3: #south
             pos_y = pos_y - int(line[1:])
-        if dir == 0:
+        if dir == 0: #east
             pos_x = pos_x + int(line[1:])
-        if dir == 2:
+        if dir == 2: #west
             pos_x = pos_x - int(line[1:])
 
     return [pos_x, pos_y, dir]
-
-
 
 def part1(lines):
     dir = 0
@@ -90,7 +88,6 @@ def main():
 
     print(part1(lines))
     print(part2(lines))
-    
 
 if __name__== "__main__":
     main()
