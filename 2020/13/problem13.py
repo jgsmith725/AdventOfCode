@@ -4,31 +4,31 @@ def part2(lines):
     buses = []
     offsets = []
     arr = lines[0].strip().split(",")
-    biggest = 0
-    biggest_offset = 0
-    time_start = 1  
     for idx in range(len(arr)):
         val = arr[idx]
         if not val == "x":
-            time_start = time_start * int(val)
-            if int(val) > biggest:
-                biggest = int(val)
-                biggest_offset = idx
             buses.append(int(val))
             offsets.append(idx)
     
-    time = time_start - biggest_offset
+    time = 1
+    idxs_to_check = 1
+    time_jump = 1
     while True:
         valid = True
-        for idx in range(len(buses)):
+        lcm = 1
+        for idx in range(idxs_to_check):
             bus = buses[idx]
             offset = offsets[idx]
+            lcm = lcm * bus
             if (time + offset) % bus != 0:
                 valid = False
                 break
         if valid == True:
-            break
-        time = time - biggest
+            if idxs_to_check == len(buses):
+                break
+            idxs_to_check = idxs_to_check + 1
+            time_jump = lcm
+        time = time + time_jump
 
     return time
 
