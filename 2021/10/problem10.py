@@ -94,9 +94,6 @@ def getTotalScore(illegalClosers):
     return tot
     
 
-
-#def part2(lines):
-
 def main():
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, 'data.txt')
