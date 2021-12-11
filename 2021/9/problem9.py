@@ -38,7 +38,7 @@ def part2(lines):
     basins = []
     for y in range(len(grid)):
         for x in range(len(grid[0])):
-            basin = getBasinSize(grid, x, y, searched, 0)
+            basin = getBasinSize(grid, x, y, searched)
             if basin == 0:
                 continue
             basins.append(basin)
@@ -57,7 +57,7 @@ def part2(lines):
     print(max1 * max2 * max3)
 
 
-def getBasinSize(grid, x, y, searched, size):
+def getBasinSize(grid, x, y, searched):
     if y < 0 or y == len(grid):
         return 0
     if x < 0 or x == len(grid[y]):
@@ -67,12 +67,12 @@ def getBasinSize(grid, x, y, searched, size):
     if searched[y][x] == 1:
         return 0
     
-    size += 1
+    size = 1
     searched[y][x] = 1
-    size += getBasinSize(grid, x - 1, y, searched, 0)
-    size += getBasinSize(grid, x + 1, y, searched, 0)
-    size += getBasinSize(grid, x, y - 1, searched, 0)
-    size += getBasinSize(grid, x, y + 1, searched, 0)
+    size += getBasinSize(grid, x - 1, y, searched)
+    size += getBasinSize(grid, x + 1, y, searched)
+    size += getBasinSize(grid, x, y - 1, searched)
+    size += getBasinSize(grid, x, y + 1, searched)
     return size
     
 
