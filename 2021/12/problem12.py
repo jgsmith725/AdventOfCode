@@ -55,12 +55,12 @@ def findPaths2(caves):
     path_count = traverse2(caves, cave, path, False)
     return path_count
 
-def traverse2(caves: dict, cave: Cave, path: list, usedExtraVisit: bool):
+def traverse2(caves: dict, cave: Cave, path: list, used_extra_visit: bool):
     if cave.size == Size.SMALL and cave.name in path:
-        if usedExtraVisit or cave.name == "start" or cave.name == "end":
+        if used_extra_visit or cave.name == "start" or cave.name == "end":
             return 0
         else:
-            usedExtraVisit = True
+            used_extra_visit = True
 
     path.append(cave.name)
 
@@ -70,7 +70,7 @@ def traverse2(caves: dict, cave: Cave, path: list, usedExtraVisit: bool):
 
     path_count = 0
     for new_cave_name in cave.connections:
-        path_count += traverse2(caves, caves[new_cave_name], path.copy(), usedExtraVisit)
+        path_count += traverse2(caves, caves[new_cave_name], path.copy(), used_extra_visit)
     return path_count
 
 def part1(lines):
