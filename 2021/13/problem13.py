@@ -65,7 +65,6 @@ def resize(grid, rows, cols, start_col):
 def part1(lines):
     grid, folds = parseInput(lines)
     grid = fold(grid, folds[0])
-    grid = fold(grid, folds[1])
     print(countPoints(grid))
 
 def part2(lines):
@@ -83,8 +82,8 @@ def main():
     f=open(my_file, "r")
     lines = f.readlines()
 
-    #part1(lines)
-    part2(lines)
+    part1(lines)
+    #part2(lines)
 
 
 
